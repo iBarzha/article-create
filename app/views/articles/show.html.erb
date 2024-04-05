@@ -1,11 +1,8 @@
-<h1><%= @article.title %></h1>
-
-<p><%= @article.body %></p>
-
-<ul>
-  <li><%= link_to "Edit", edit_article_path(@article) %></li>
-  <li><%= link_to "Destroy", article_path(@article), data: {
-    turbo_method: :delete,
-    turbo_confirm: "Are you sure?"
-  } %></li>
-</ul>
+<div class="container">
+  <h1><%= @article.title %></h1>
+  <p><%= @article.body %></p>
+  <div class="btn-group" role="group" aria-label="Actions">
+    <%= link_to "Edit", edit_article_path(@article), class: "btn btn-sm btn-primary mr-1" %>
+    <%= link_to "Destroy", article_path(@article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-sm btn-danger" %>
+  </div>
+</div>
