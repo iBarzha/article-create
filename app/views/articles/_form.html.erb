@@ -19,4 +19,10 @@
   <div class="form-group">
     <%= form.submit "Submit", class: 'btn btn-primary' %>
   </div>
+
+  <div>
+    <%= form.label :status %><br>
+    <%= form.select :status, Visible::VALID_STATUSES, selected: article.status || 'public' %>
+  </div>
+
 <% end %>

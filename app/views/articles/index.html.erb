@@ -1,7 +1,11 @@
 <div class="container">
   <h1 class="text-center">Articles</h1>
+
+  Our blog has <%= Article.public_count %> articles and counting!
+
   <div class="row justify-content-center">
     <% @articles.each do |article| %>
+      <% unless article.archived? %>
       <div class="col-md-4">
         <div class="card mb-3">
           <div class="card-body">
@@ -15,6 +19,7 @@
           </div>
         </div>
       </div>
+      <% end %>
     <% end %>
   </div>
 </div>

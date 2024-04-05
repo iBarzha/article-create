@@ -3,6 +3,14 @@
   <p><%= @article.body %></p>
   <div class="btn-group" role="group" aria-label="Actions">
     <%= link_to "Edit", edit_article_path(@article), class: "btn btn-sm btn-primary mr-1" %>
-    <%= link_to "Destroy", article_path(@article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-sm btn-danger" %>
+    <%= link_to "Destroy", article_path(@article), data: {
+      turbo_method: :delete,
+      turbo_confirm: "Are you sure?" }, class: "btn btn-sm btn-danger" %>
   </div>
+
+  <h2>Comments</h2>
+  <%= render @article.comments %>
+
+  <h2>Add a comment:</h2>
+  <%= render 'comments/form' %>
 </div>
