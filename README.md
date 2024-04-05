@@ -1,24 +1,4 @@
-# README
+# PREVIEW
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[preview.webm](https://github.com/iBarzha/new-rails/assets/95016192/4ce1abb2-c505-43cf-afd3-accefd67f484)
