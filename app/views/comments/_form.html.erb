@@ -1,19 +1,30 @@
-<%= form_with model: [ @article, @article.comments.build ] do |form| %>
-  <p>
-    <%= form.label :commenter %><br>
-    <%= form.text_field :commenter %>
-  </p>
-  <p>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
-  </p>
-  <p>
-    <%= form.submit "Create Comment", class: 'btn btn-primary'  %>
-  </p>
+<div class="container d-flex justify-content-center">
+  <%= form_with model: [ @article, @article.comments.build ], html: { class: "my-form text-center" } do |form| %>
+    <div class="form-group">
+      <div class="col-sm-12">
+        <%= form.label :commenter, class: "form-label" %><br>
+        <%= form.text_field :commenter, class: 'form-control form-control-sm', placeholder: 'Your Name' %>
+      </div>
+    </div>
 
-  <p>
-    <%= form.label :status %><br>
-    <%= form.select :status, Visible::VALID_STATUSES, selected: 'public' %>
-  </p>
+    <div class="form-group">
+      <div class="col-sm-12">
+        <%= form.label :body, class: "form-label" %><br>
+        <%= form.text_area :body, class: 'form-control form-control-sm', rows: 4, placeholder: 'Your Comment' %>
+      </div>
+    </div>
 
-<% end %>
+    <div class="form-group">
+      <div class="col-sm-12">
+        <%= form.label :status, class: "form-label" %><br>
+        <%= form.select :status, options_for_select(Visible::VALID_STATUSES.reject(&:blank?), 'public'), {}, class: 'form-control form-control-sm' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-12">
+        <%= form.submit "Create Comment", class: 'btn btn-primary' %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,27 +1,30 @@
 <div class="container">
-  <h1 class="text-center">Articles</h1>
+  <h1 class="text-center mb-4">Articles</h1>
 
-  Our blog has <%= Article.public_count %> articles and counting!
+  <p class="text-center">Our blog has <%= Article.public_count %> articles and counting!</p>
 
   <div class="row justify-content-center">
     <% @articles.each do |article| %>
       <% unless article.archived? %>
-      <div class="col-md-4">
-        <div class="card mb-3">
-          <div class="card-body">
-            <h5 class="card-title"><%= link_to article.title, article %></h5>
-            <p class="card-text"><%= truncate(article.body, length: 100) %></p>
-            <div class="text-center">
-              <%= link_to "Edit", edit_article_path(article), class: "btn btn-sm btn-primary mr-1" %>
-              <%= link_to "Destroy", article_path(article), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-danger" %>
-              <%= link_to "New Article", new_article_path, class: "btn btn-primary new-article-btn" %>
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><%= link_to article.title, article %></h5>
+              <p class="card-text"><%= truncate(article.body, length: 100) %></p>
+            </div>
+            <div class="card-footer">
+              <div class="btn-group d-flex justify-content-center" role="group" aria-label="Article actions">
+                <%= link_to "Edit", edit_article_path(article), class: "btn btn-lg btn-primary flex-fill mr-1" %>
+                <%= link_to "Destroy", article_path(article), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-lg btn-danger flex-fill" %>
+              </div>
             </div>
           </div>
         </div>
-      </div>
       <% end %>
     <% end %>
   </div>
+
+  <div class="text-center">
+    <%= link_to "New Article", new_article_path, class: "btn btn-lg btn-primary rounded-pill py-2 px-4 shadow-sm" %>
+  </div>
 </div>
-
-
